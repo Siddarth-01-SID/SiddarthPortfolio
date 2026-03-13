@@ -1,140 +1,146 @@
-import { Code2, Layers, FileText, Zap, Bot, Globe } from "lucide-react";
+import { Dribbble, Github, Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react"
+import type { Metadata } from "next"
 
-export default function IntroductionPage() {
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn more about my design philosophy, experience, and approach to product design.",
+}
+
+const experience = [
+  {
+    period: "2023 — Present",
+    role: "Senior Product Designer",
+    company: "Vercel",
+    companyUrl: "https://vercel.com",
+    description: "Leading design for developer tools and platform experiences, focusing on simplifying complex workflows and creating intuitive interfaces.",
+    skills: ["Product Design", "Design Systems", "Figma", "User Research"],
+  },
+  {
+    period: "2021 — 2023",
+    role: "Product Designer",
+    company: "Stripe",
+    companyUrl: "https://stripe.com",
+    description: "Designed checkout flows and payment experiences used by millions of businesses worldwide. Led the redesign of the merchant dashboard.",
+    skills: ["UI/UX", "Prototyping", "User Research", "A/B Testing"],
+  },
+  {
+    period: "2019 — 2021",
+    role: "UI/UX Designer",
+    company: "Linear",
+    companyUrl: "https://linear.app",
+    description: "Contributed to building a fast, keyboard-first project management tool loved by engineering teams. Focused on interaction design and micro-animations.",
+    skills: ["Interface Design", "Motion Design", "React", "CSS"],
+  },
+]
+
+const socialLinks = [
+  { label: "Dribbble", icon: Dribbble, href: "#" },
+  { label: "LinkedIn", icon: Linkedin, href: "#" },
+  { label: "Twitter", icon: Twitter, href: "#" },
+  { label: "GitHub", icon: Github, href: "#" },
+]
+
+export default function AboutPage() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20">
-        <div className="mx-auto max-w-4xl">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-2">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground">
-                Welcome to EinCode
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-                Where Code Meets{" "}
-                <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">
-                  Creativity
-                </span>
-              </h1>
-            </div>
-
-            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-3xl">
-              EinCode is a digital workshop and portfolio platform designed for developers who
-              believe in building in public. It&apos;s a space where ideas take shape, experiments
-              unfold, and open-source projects come to life.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="relative px-4 sm:px-6 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded border border-border/50 bg-card/50 p-6 sm:p-10 backdrop-blur-sm space-y-8">
-            <div className="space-y-4">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary">
-                About the Platform
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                A Developer&apos;s Digital Workshop
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-base sm:text-lg leading-relaxed text-muted-foreground">
-              <p>
-                EinCode isn&apos;t just another portfolio website—it&apos;s a living, breathing
-                showcase of continuous learning and experimentation. Built by developers, for
-                developers, it represents the philosophy that the best way to learn is to build,
-                share, and iterate.
-              </p>
-
-              <p>
-                Whether you&apos;re exploring cutting-edge AI integrations, diving into systems
-                programming, or looking for modern web development patterns, EinCode offers a window
-                into real-world projects at various stages of development—from initial experiments
-                to production-ready solutions.
-              </p>
-
-              <p>
-                The platform is fully open-source, encouraging collaboration and knowledge sharing
-                within the developer community. Every project, every lab note, and every line of
-                code is designed to inspire and educate.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="relative px-4 sm:px-6 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 space-y-4 text-center">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary">
-              Platform Features
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Built for Modern Development
-            </h2>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Code2,
-                title: "Open Source Projects",
-                description:
-                  "Every project is available on GitHub for learning and collaboration. Transparent development process from start to finish.",
-              },
-              {
-                icon: Layers,
-                title: "Developer Workbench",
-                description:
-                  "A dedicated space for ongoing experiments and prototypes. Watch ideas evolve from concept to implementation.",
-              },
-              {
-                icon: FileText,
-                title: "Lab Notes",
-                description:
-                  "Detailed documentation of learning journeys, technical insights, and development patterns discovered along the way.",
-              },
-              {
-                icon: Zap,
-                title: "Modern Tech Stack",
-                description:
-                  "Built with cutting-edge technologies including Next.js, React, TypeScript, and Tailwind CSS for optimal performance.",
-              },
-              {
-                icon: Bot,
-                title: "AI Integration",
-                description:
-                  "Exploring the intersection of AI and web development with practical implementations and real-world use cases.",
-              },
-              {
-                icon: Globe,
-                title: "Localization",
-                description:
-                  "Multi-language support with i18n integration, making projects accessible to a global developer community.",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="group rounded border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card/80"
+    <div className="px-6 pt-28 pb-20">
+      <div className="mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="mb-16 max-w-3xl animate-fade-in-up">
+          <p className="text-sm text-muted-foreground mb-4">About</p>
+          <h1 className="text-4xl font-normal tracking-tight sm:text-5xl mb-8">
+            Designing products that make a difference.
+          </h1>
+          <div className="flex gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:border-foreground hover:text-foreground"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded border border-primary/30 bg-primary/10 text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
-                  <feature.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mb-2 font-mono text-sm font-semibold uppercase tracking-wider text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
+                <link.icon className="h-4 w-4" />
+              </a>
             ))}
           </div>
         </div>
-      </section>
+
+        {/* Content Grid */}
+        <div className="grid gap-16 lg:grid-cols-[1fr,1.5fr]">
+          {/* Left - Photo placeholder */}
+          <div className="animate-fade-in-up stagger-1">
+            <div className="aspect-[4/5] rounded-2xl bg-secondary" />
+          </div>
+
+          {/* Right - Bio & Experience */}
+          <div className="space-y-12">
+            <div className="space-y-6 animate-fade-in-up stagger-2">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {"I'm a product designer passionate about crafting digital experiences that are both beautiful and functional. My work lies at the intersection of design and technology, creating products that not only look great but are built for performance and usability."}
+              </p>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Currently at <span className="text-foreground font-medium">Vercel</span>, where I focus on developer tools and making complex workflows feel simple. Previously, I worked on payment experiences at Stripe and helped shape Linear into the tool engineering teams love.
+              </p>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {"I believe great design is invisible—it gets out of the way and lets users accomplish their goals effortlessly. This philosophy guides every project I work on, from design systems to user interfaces."}
+              </p>
+            </div>
+
+            {/* Experience */}
+            <div className="space-y-6 animate-fade-in-up stagger-3">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Experience</p>
+
+              <div className="space-y-0 divide-y divide-border">
+                {experience.map((exp, index) => (
+                  <div
+                    key={index}
+                    className="py-8 first:pt-0 last:pb-0"
+                  >
+                    <div className="grid gap-4 sm:grid-cols-[140px,1fr]">
+                      <p className="text-sm text-muted-foreground">{exp.period}</p>
+                      <div className="space-y-3">
+                        <div>
+                          <h4 className="font-medium">{exp.role}</h4>
+                          <a 
+                            href={exp.companyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {exp.company}
+                            <ArrowUpRight className="h-3 w-3" />
+                          </a>
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="rounded-full bg-secondary px-3 py-1 text-xs"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact CTA */}
+            <div className="pt-8 border-t border-border animate-fade-in-up stagger-4">
+              <a
+                href="mailto:hello@alexchen.design"
+                className="inline-flex items-center gap-3 rounded-full border border-foreground bg-foreground text-background px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-foreground/90"
+              >
+                <Mail className="h-4 w-4" />
+                Get in touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }

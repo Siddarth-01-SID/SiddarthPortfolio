@@ -1,61 +1,60 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
+import { Inter, Playfair_Display, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
-// Configure fonts with proper options
-const geist = Geist({
+const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-geist',
+  variable: '--font-inter',
   display: 'swap',
 })
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: '--font-geist-mono',
   display: 'swap',
 })
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
   title: {
-    default: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    template: "%s | EINCODE",
+    default: "Alex Chen — Product Designer",
+    template: "%s | Alex Chen",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-  keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Ehsan Ghaffar", url: "https://github.com/ehsanghaffar" }],
-  creator: "Ehsan Ghaffar",
-  publisher: "Ehsan Ghaffar",
-  generator: "v0.app",
+    "Product Designer crafting thoughtful digital experiences. Specializing in UI/UX design, design systems, and user-centered product development.",
+  keywords: ["Product Designer", "UI/UX Designer", "Design Systems", "User Experience", "Interface Design", "Digital Product Design"],
+  authors: [{ name: "Alex Chen" }],
+  creator: "Alex Chen",
+  publisher: "Alex Chen",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-    siteName: "EINCODE",
+    title: "Alex Chen — Product Designer",
+    description: "Product Designer crafting thoughtful digital experiences. Specializing in UI/UX design, design systems, and user-centered product development.",
+    siteName: "Alex Chen",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+        alt: "Alex Chen — Product Designer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@ehsanghaffar",
+    title: "Alex Chen — Product Designer",
+    description: "Product Designer crafting thoughtful digital experiences.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -70,20 +69,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/favicon.ico",
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
@@ -95,9 +81,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} storageKey="theme-mode">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
           {children}
         </ThemeProvider>
         <Analytics />
