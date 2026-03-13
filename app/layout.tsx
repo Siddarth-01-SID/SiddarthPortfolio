@@ -24,37 +24,37 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://siddarth-sharma.vercel.app'),
   title: {
-    default: "Alex Chen — Product Designer",
-    template: "%s | Alex Chen",
+    default: "Siddarth Sharma — UI/UX & Product Designer",
+    template: "%s | Siddarth Sharma",
   },
   description:
-    "Product Designer crafting thoughtful digital experiences. Specializing in UI/UX design, design systems, and user-centered product development.",
-  keywords: ["Product Designer", "UI/UX Designer", "Design Systems", "User Experience", "Interface Design", "Digital Product Design"],
-  authors: [{ name: "Alex Chen" }],
-  creator: "Alex Chen",
-  publisher: "Alex Chen",
+    "UI/UX and Product Designer crafting thoughtful, intuitive, and visually engaging digital experiences. Creating products that people love using.",
+  keywords: ["UI/UX Designer", "Product Designer", "Siddarth Sharma", "User Experience", "Interface Design", "Digital Product Design", "Figma", "Design Systems"],
+  authors: [{ name: "Siddarth Sharma" }],
+  creator: "Siddarth Sharma",
+  publisher: "Siddarth Sharma",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Alex Chen — Product Designer",
-    description: "Product Designer crafting thoughtful digital experiences. Specializing in UI/UX design, design systems, and user-centered product development.",
-    siteName: "Alex Chen",
+    title: "Siddarth Sharma — UI/UX & Product Designer",
+    description: "UI/UX and Product Designer crafting thoughtful, intuitive, and visually engaging digital experiences.",
+    siteName: "Siddarth Sharma Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Alex Chen — Product Designer",
+        alt: "Siddarth Sharma — UI/UX & Product Designer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Chen — Product Designer",
-    description: "Product Designer crafting thoughtful digital experiences.",
+    title: "Siddarth Sharma — UI/UX & Product Designer",
+    description: "UI/UX and Product Designer crafting thoughtful, intuitive, and visually engaging digital experiences.",
     images: ["/og-image.png"],
   },
   robots: {

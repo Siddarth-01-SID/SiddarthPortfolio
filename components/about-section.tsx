@@ -1,109 +1,110 @@
 "use client"
 
-import { Dribbble, Github, Linkedin, Twitter } from "lucide-react"
-
-const experience = [
-  {
-    period: "2023 — Present",
-    role: "Senior Product Designer",
-    company: "Vercel",
-    description: "Leading design for developer tools and platform experiences, focusing on simplifying complex workflows.",
-    skills: ["Product Design", "Design Systems", "Figma"],
-  },
-  {
-    period: "2021 — 2023",
-    role: "Product Designer",
-    company: "Stripe",
-    description: "Designed checkout flows and payment experiences used by millions of businesses worldwide.",
-    skills: ["UI/UX", "Prototyping", "User Research"],
-  },
-  {
-    period: "2019 — 2021",
-    role: "UI/UX Designer",
-    company: "Linear",
-    description: "Contributed to building a fast, keyboard-first project management tool loved by engineering teams.",
-    skills: ["Interface Design", "Motion Design", "React"],
-  },
-]
-
-const socialLinks = [
-  { label: "Dribbble", icon: Dribbble, href: "#" },
-  { label: "LinkedIn", icon: Linkedin, href: "#" },
-  { label: "Twitter", icon: Twitter, href: "#" },
-  { label: "GitHub", icon: Github, href: "#" },
-]
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import { Download } from "lucide-react"
 
 export function AboutSection() {
-  return (
-    <section id="about" className="px-6 py-20 sm:py-28 border-t border-border">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-16 lg:grid-cols-[1fr,2fr]">
-          {/* Left Column - About */}
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="space-y-6">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">About</p>
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
-              <div className="flex gap-3">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    aria-label={link.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:border-foreground hover:text-foreground"
-                  >
-                    <link.icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section 
+      ref={sectionRef}
+      id="about" 
+      className="relative px-6 py-24 sm:py-32 overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-[var(--blue-light)] rounded-full blur-[150px] opacity-20" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-[var(--blue-dark)] rounded-full blur-[130px] opacity-15" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className={`text-center mb-16 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+          <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-sm font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)] mb-4">
+            About Me
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif">
+            Get to Know <span className="gradient-text italic">Me Better</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
+          {/* Left Column - Description */}
+          <div className={`space-y-6 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
+            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+              <p>
+                I{"'"}m <span className="text-foreground font-semibold">Siddarth Sharma</span>, a passionate UI/UX and Product Designer dedicated to crafting thoughtful, intuitive, and visually engaging digital experiences. My work is rooted in empathy, understanding user needs, and transforming ideas into meaningful solutions that balance aesthetics with functionality.
+              </p>
+              <p>
+                I believe great design isn{"'"}t just beautiful—it solves problems, removes friction, and feels effortless. From research and competitive analysis to user flows, wireframes, prototypes, and high-fidelity interfaces, I focus on creating seamless end-to-end experiences.
+              </p>
+              <p>
+                Whether it{"'"}s designing mobile apps, responsive websites, or product systems, I approach every project with curiosity, clarity, and an attention to detail. I enjoy bringing ideas to life through clean layouts, strategic interaction patterns, and consistent design systems that elevate usability while expressing brand identity.
+              </p>
+              <p className="text-foreground font-medium">
+                My goal is to design products that people love using—not just because they look great, but because they feel natural, purposeful, and human.
+              </p>
+            </div>
+
+            {/* Download CV Button */}
+            <div className="pt-4">
+              <a
+                href="#"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
+              >
+                <Download className="w-5 h-5" />
+                Download CV
+                <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
             </div>
           </div>
 
-          {/* Right Column - Bio + Experience */}
-          <div className="space-y-12">
-            <div className="space-y-6 animate-fade-in-up stagger-1">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                {"I'm a product designer passionate about crafting digital experiences that are both beautiful and functional. My work lies at the intersection of design and technology, creating products that not only look great but are built for performance and usability."}
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Currently at <span className="text-foreground font-medium">Vercel</span>, where I focus on developer tools and making complex workflows feel simple. Previously, I worked on payment experiences at Stripe and helped shape Linear into the tool engineering teams love.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                {"Outside of work, I enjoy exploring new coffee shops, reading about design history, and occasionally contributing to open-source projects."}
-              </p>
-            </div>
+          {/* Right Column - Photo with flip animation */}
+          <div className={`flex justify-center lg:justify-end perspective-1000 ${isVisible ? "animate-flip-in stagger-3" : "opacity-0"}`}>
+            <div className="relative preserve-3d">
+              {/* Decorative elements */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-2xl opacity-20 blur-xl" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-[var(--blue-accent)]/30 rounded-2xl" />
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-[var(--blue-light)]/30 rounded-2xl" />
+              
+              {/* Main Image */}
+              <div className="relative w-80 h-96 sm:w-96 sm:h-[28rem] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
+                <Image
+                  src="/images/siddarth-sharma.jpg"
+                  alt="Siddarth Sharma"
+                  fill
+                  className="object-cover object-top"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/40 via-transparent to-transparent" />
+              </div>
 
-            <div className="space-y-6 animate-fade-in-up stagger-2">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Experience</p>
-
-              <div className="space-y-0 divide-y divide-border">
-                {experience.map((exp, index) => (
-                  <div
-                    key={index}
-                    className="py-6 first:pt-0 last:pb-0 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100 + 400}ms` }}
-                  >
-                    <div className="grid gap-4 sm:grid-cols-[140px,1fr]">
-                      <p className="text-sm text-muted-foreground">{exp.period}</p>
-                      <div className="space-y-3">
-                        <div>
-                          <h4 className="font-medium">{exp.role}</h4>
-                          <p className="text-sm text-muted-foreground">{exp.company}</p>
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="rounded-full bg-secondary px-3 py-1 text-xs"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {/* Floating Elements */}
+              <div className="absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle">
+                <span className="text-sm font-medium gradient-text">Product Designer</span>
+              </div>
+              <div className="absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
+                <span className="text-sm font-medium gradient-text">3+ Years Exp</span>
               </div>
             </div>
           </div>

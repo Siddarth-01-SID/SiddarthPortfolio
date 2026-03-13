@@ -6,9 +6,10 @@ import { ThemeToggle } from "./theme-toggle"
 import Link from "next/link"
 
 const navItems = [
-  { label: "Work", href: "/projects" },
-  { label: "Writing", href: "/blog" },
-  { label: "About", href: "/introduction" },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ]
 
 export function Header() {
@@ -23,30 +24,46 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent",
+        isScrolled 
+          ? "glass border-b border-border/50 shadow-lg shadow-primary/5" 
+          : "bg-transparent",
       )}
     >
-      <div className="mx-auto max-w-6xl px-6 py-4">
+      {/* Blue gradient line at top */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--blue-light)] via-[var(--blue-accent)] to-[var(--blue-dark)]" />
+      
+      <div className="mx-auto max-w-7xl px-6 py-4">
         <nav className="flex items-center justify-between">
-          <Link href="/" className="group flex flex-col">
-            <span className="text-base font-medium tracking-tight">Alex Chen</span>
-            <span className="text-xs text-muted-foreground">Product Designer</span>
+          <Link href="/" className="group flex items-center gap-2">
+            <span className="text-xl font-serif italic font-medium bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] bg-clip-text text-transparent">
+              Siddarth Sharma
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
-                className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="nav-hover text-sm font-medium text-muted-foreground px-2 py-1"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
             <ThemeToggle />
           </div>
@@ -54,25 +71,25 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full md:hidden transition-colors hover:bg-secondary"
+            className="flex h-10 w-10 items-center justify-center rounded-full md:hidden transition-all hover:bg-accent"
             aria-label="Toggle menu"
           >
             <div className="flex flex-col gap-1.5 w-5">
               <span
                 className={cn(
-                  "h-0.5 bg-foreground transition-all duration-300 origin-center",
+                  "h-0.5 bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] transition-all duration-300 origin-center rounded-full",
                   isMobileMenuOpen ? "w-5 translate-y-2 rotate-45" : "w-5",
                 )}
               />
               <span
                 className={cn(
-                  "h-0.5 w-4 bg-foreground transition-all duration-300",
+                  "h-0.5 w-4 bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] transition-all duration-300 rounded-full",
                   isMobileMenuOpen && "opacity-0",
                 )}
               />
               <span
                 className={cn(
-                  "h-0.5 bg-foreground transition-all duration-300 origin-center",
+                  "h-0.5 bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] transition-all duration-300 origin-center rounded-full",
                   isMobileMenuOpen ? "w-5 -translate-y-2 -rotate-45" : "w-5",
                 )}
               />
@@ -84,21 +101,24 @@ export function Header() {
         <div
           className={cn(
             "overflow-hidden transition-all duration-400 md:hidden",
-            isMobileMenuOpen ? "max-h-64 opacity-100 pt-6" : "max-h-0 opacity-0",
+            isMobileMenuOpen ? "max-h-80 opacity-100 pt-6" : "max-h-0 opacity-0",
           )}
         >
-          <div className="flex flex-col gap-4 border-t border-border pt-6">
-            {navItems.map((item) => (
-              <Link
+          <div className="flex flex-col gap-4 border-t border-border/50 pt-6">
+            {navItems.map((item, index) => (
+              <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg text-muted-foreground transition-colors hover:text-foreground"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={cn(
+                  "nav-hover text-lg font-medium text-muted-foreground py-2 animate-fade-in-up",
+                  `stagger-${index + 1}`
+                )}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-border/50">
               <ThemeToggle />
             </div>
           </div>
