@@ -2,51 +2,175 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type ProjectCategory = "All" | "User Research" | "User Interface"
 
-const projects = [
+interface Project {
+  id: number
+  title: string
+  projectName: string
+  description: string
+  tags: string[]
+  image: string
+  category: ProjectCategory
+  caseStudyUrl?: string
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: "Meridian Health",
-    description: "Redesigning the patient experience for a modern healthcare platform",
-    tags: ["Product Design", "Design System", "Mobile App"],
-    image: "/images/project-meridian.jpg",
-    category: "User Interface" as ProjectCategory,
+    title: "Elevating Social Media Usability Through Modern UX",
+    projectName: "Yaari",
+    description: "This case study highlights my complete end-to-end design process for creating Yaari, a social media app designed to be more intuitive, engaging, and user-focused. The journey began with thorough user research, where I compared multiple existing social media platforms to identify gaps, pain points, and opportunities for improvement. Based on these insights, I defined clear problem statements and crafted meaningful solutions aligned with both user expectations and product goals. Through structured interviews and well-designed research questions, I gathered valuable feedback that guided the direction of the experience. A detailed competitive analysis helped establish usability standards and uncover areas for differentiation in the market. To ensure the product truly represented real users, I developed User Personas, Empathy Maps, and a complete User Journey Map, capturing motivations, frustrations, and behaviors. To organize the experience, I built the Information Architecture and mapped a clear User Flow. Using a well-defined Design System—including typography, color, UI components, and reusable patterns—I ensured consistency, scalability, and visual harmony. The process concluded with Low-Fidelity Wireframes to outline structure and interactions before transitioning into high-fidelity UI screens. This case study demonstrates my ability to combine research, strategy, and design principles to create a meaningful, user-centered product experience.",
+    tags: ["User Research", "Design System", "Wireframes"],
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    category: "User Research",
   },
   {
     id: 2,
-    title: "Flux Finance",
-    description: "Building a seamless fintech experience for the next generation",
-    tags: ["UI/UX Design", "Web Application", "Branding"],
-    image: "/images/project-flux.jpg",
-    category: "User Interface" as ProjectCategory,
+    title: "Transforming Online Shopping with Data-Driven UX Research",
+    projectName: "Shop Mart",
+    description: "Shop Mart is a self-directed UX research project focused on understanding user needs, shopping behaviors, and pain points within an online shopping experience. The research process included user interviews, surveys, competitive analysis, and usability testing to uncover key challenges related to product discovery, navigation, decision-making, and the checkout journey. Insights from the research revealed opportunities to simplify product search and filtering, increase trust during the purchase process, and reduce friction in the checkout flow. As part of the research phase, I also created low-fidelity wireframes to explore improved user flows and validate solutions before moving forward. Shop Mart aims to deliver a seamless and user-friendly shopping experience with clear navigation, smooth interaction patterns, and features that support faster decision-making, enhanced engagement, and a more efficient purchase journey.",
+    tags: ["User Research", "Design System", "Wireframes"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    category: "User Research",
   },
   {
     id: 3,
-    title: "Wanderlust Travel",
-    description: "Creating memorable booking experiences for travelers worldwide",
-    tags: ["Product Design", "User Research", "Prototyping"],
-    image: "/images/project-wanderlust.jpg",
-    category: "User Research" as ProjectCategory,
+    title: "Unified Movie & Event Booking Interface",
+    projectName: "TixFlix",
+    description: "I have designed my own website UI called TixFlix, created to deliver a seamless and enjoyable movie and event ticket booking experience from start to finish. The journey begins with a visually engaging pre-landing page that sets the overall tone and showcases the platform's purpose. From there, users are guided into clean and intuitive authentication screens—including login, signup, and password reset—ensuring effortless access for both new and returning users. Once authenticated, users arrive at a thoughtfully structured post-landing page where they can easily explore trending movies, upcoming events, schedules, and nearby venues. The interface prioritizes clarity, quick navigation, and visual hierarchy, allowing users to make decisions confidently. As the journey continues, the seat-selection screen offers a refined, clear, and responsive layout, giving users full control over choosing the perfect spot based on availability, pricing, and seating preference. To enhance the booking experience further, I designed a dedicated beverages and checkout process with smooth interactions and simplified steps, making the final stage of securing tickets feel fast, intuitive, and satisfying. Every screen and interaction throughout TixFlix has been carefully crafted with user needs, accessibility, and usability in mind. Overall, this project represents a complete, user-centered booking experience—combining thoughtful design decisions, functional simplicity, and a cohesive visual identity to create a website UI that feels modern, efficient, and truly enjoyable to use.",
+    tags: ["User Interface", "Web Designing", "Design System"],
+    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+    category: "User Interface",
   },
   {
     id: 4,
-    title: "Archway Studio",
-    description: "Crafting a portfolio platform for architects and designers",
-    tags: ["Design System", "Web Design", "Development"],
-    image: "/images/project-archway.jpg",
-    category: "User Interface" as ProjectCategory,
+    title: "Redefining Digital Learning: A UX Research Case Study",
+    projectName: "Teach Nexus",
+    description: "Teach Nexus is a self-designed e-learning app created with the goal of making online education more intuitive, engaging, and accessible for learners. This UX research project focuses on identifying user needs, learning habits, and key pain points through methods such as user interviews, surveys, competitive analysis, and usability testing. The insights gathered helped uncover opportunities to improve navigation clarity, increase engagement, and support consistent course completion. As part of the design process, I also created low-fidelity wireframes to explore user flows, structure content hierarchy, and validate core interaction patterns early in the research phase. Teach Nexus features personalized learning paths, interactive lessons, progress tracking, and a clean, distraction-free interface designed to enhance the overall learning experience.",
+    tags: ["User Research", "Design System", "App Designing"],
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+    category: "User Research",
   },
 ]
 
 const filters: ProjectCategory[] = ["All", "User Research", "User Interface"]
 
+function ProjectCard({ project, index, isVisible }: { project: Project; index: number; isVisible: boolean }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  
+  // Get first ~250 characters for preview
+  const previewLength = 250
+  const previewText = project.description.substring(0, previewLength)
+  const hasMore = project.description.length > previewLength
+
+  // Highlight project name in description
+  const highlightProjectName = (text: string) => {
+    const parts = text.split(new RegExp(`(${project.projectName})`, 'gi'))
+    return parts.map((part, i) => 
+      part.toLowerCase() === project.projectName.toLowerCase() 
+        ? <strong key={i} className="font-bold text-foreground">{part}</strong>
+        : part
+    )
+  }
+
+  return (
+    <div
+      className={cn(
+        "group relative overflow-hidden rounded-2xl bg-card border border-border transition-all duration-500 hover-lift card-glow",
+        isVisible ? `animate-fade-in-up` : "opacity-0"
+      )}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      {/* Image */}
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        
+        {/* Category Badge */}
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-xs font-medium text-gray-800">
+            {project.category}
+          </span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 sm:p-8">
+        {/* Title */}
+        <h3 className="text-xl sm:text-2xl font-semibold mb-4 group-hover:gradient-text transition-all duration-300 leading-tight">
+          {project.title}
+        </h3>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1.5 rounded-full bg-gradient-to-r from-[var(--blue-light)]/10 to-[var(--blue-dark)]/10 border border-[var(--blue-accent)]/20 text-xs font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Description */}
+        <div className="text-muted-foreground text-sm leading-relaxed mb-4">
+          {isExpanded ? (
+            <p>{highlightProjectName(project.description)}</p>
+          ) : (
+            <p>
+              {highlightProjectName(previewText)}
+              {hasMore && "..."}
+            </p>
+          )}
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          {hasMore && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-border text-sm font-medium text-muted-foreground hover:text-foreground hover:border-[var(--blue-accent)]/50 transition-all duration-300"
+            >
+              {isExpanded ? (
+                <>
+                  See Less
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  See More
+                  <ChevronDown className="w-4 h-4 animate-bounce" />
+                </>
+              )}
+            </button>
+          )}
+          
+          <a
+            href={project.caseStudyUrl || "#"}
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
+          >
+            <ExternalLink className="w-4 h-4" />
+            See Case Study
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function ProjectsGrid() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("All")
-  const [hoveredId, setHoveredId] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -118,64 +242,12 @@ export function ProjectsGrid() {
         {/* Projects Grid */}
         <div className="grid gap-8 md:grid-cols-2">
           {filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className={cn(
-                "group relative overflow-hidden rounded-2xl bg-card border border-border transition-all duration-500 hover-lift card-glow",
-                isVisible ? `animate-fade-in-up stagger-${index + 2}` : "opacity-0"
-              )}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden img-zoom">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* View Project Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="px-6 py-3 rounded-full bg-white text-[var(--blue-dark)] font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
-                    <ArrowUpRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 group-hover:gradient-text transition-all duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-secondary text-xs font-medium text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index} 
+              isVisible={isVisible} 
+            />
           ))}
         </div>
 

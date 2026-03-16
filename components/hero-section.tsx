@@ -59,11 +59,7 @@ export function HeroSection() {
                 </svg>
               </a>
               <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
-                }}
+                href="mailto:sidh.sharma2001@gmail.com?subject=Let's Work Together&body=Hi Siddarth,%0D%0A%0D%0AI'd love to discuss a potential project with you.%0D%0A%0D%0ABest regards"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[var(--blue-accent)]/50 text-foreground font-medium transition-all duration-300 hover:bg-[var(--blue-accent)]/10 hover:border-[var(--blue-accent)]"
               >
                 Get In Touch
@@ -73,15 +69,15 @@ export function HeroSection() {
             {/* Stats */}
             <div className="animate-fade-in-up stagger-4 flex flex-wrap gap-8 justify-center lg:justify-start mt-12 pt-12 border-t border-border/50">
               <div className="text-center lg:text-left">
-                <span className="block text-3xl font-bold gradient-text">3+</span>
+                <span className="block text-3xl font-bold gradient-text">2+</span>
                 <span className="text-sm text-muted-foreground">Years Experience</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block text-3xl font-bold gradient-text">50+</span>
+                <span className="block text-3xl font-bold gradient-text">13+</span>
                 <span className="text-sm text-muted-foreground">Projects Completed</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block text-3xl font-bold gradient-text">30+</span>
+                <span className="block text-3xl font-bold gradient-text">8+</span>
                 <span className="text-sm text-muted-foreground">Happy Clients</span>
               </div>
             </div>
