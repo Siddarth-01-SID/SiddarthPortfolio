@@ -51,7 +51,7 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
+        <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-start">
           {/* Left Column - Description */}
           <div className={`space-y-6 order-2 lg:order-1 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
@@ -72,7 +72,8 @@ export function AboutSection() {
             {/* Download CV Button */}
             <div className="pt-4">
               <a
-                href="#"
+                href="/Siddarth-Sharma-CV.pdf"
+                download="Siddarth-Sharma-CV.pdf"
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
               >
                 <Download className="w-5 h-5" />
@@ -83,8 +84,8 @@ export function AboutSection() {
           </div>
 
           {/* Right Column - Photo with flip animation */}
-          <div className={`flex justify-center lg:justify-start perspective-1000 order-1 lg:order-2 ${isVisible ? "animate-flip-in-right stagger-3" : "opacity-0"}`}>
-            <div className="relative preserve-3d">
+          <div className={`flex flex-col items-center order-1 lg:order-2 ${isVisible ? "animate-flip-in-right stagger-3" : "opacity-0"}`}>
+            <div className="relative preserve-3d w-fit">
               {/* Decorative elements */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-2xl opacity-20 blur-xl" />
               <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-[var(--blue-accent)]/30 rounded-2xl" />
@@ -111,8 +112,8 @@ export function AboutSection() {
               </div>
             </div>
 
-            {/* Social Media Icons - Outside the relative container */}
-            <div className="flex justify-center gap-4 mt-12 pt-8 border-t border-border/50">
+            {/* Social Media Icons - Centered below photo */}
+            <div className="flex justify-center gap-4 w-full mt-12 pt-8 border-t border-border/50">
               <Link
                 href="https://www.linkedin.com/in/siddarth-sharma-854092241/"
                 target="_blank"
