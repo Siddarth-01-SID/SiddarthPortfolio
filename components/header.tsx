@@ -52,7 +52,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-2">
-            <span className="text-xl font-serif italic font-medium bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] bg-clip-text text-transparent">
+            <span className="text-xl font-serif font-medium text-foreground">
               Siddarth Sharma
             </span>
           </Link>

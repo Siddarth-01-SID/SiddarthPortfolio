@@ -26,8 +26,39 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-20">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Left Side - Content */}
-          <div className="flex-1 text-center lg:text-left">
+          {/* Left Side - Photo */}
+          <div className="flex-1 order-2 lg:order-1 flex justify-center lg:justify-start animate-scale-in stagger-2">
+            <div className="relative">
+              {/* Decorative rings */}
+              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-[var(--blue-light)]/30 animate-spin" style={{ animationDuration: "20s" }} />
+              <div className="absolute -inset-8 rounded-full border-2 border-dashed border-[var(--blue-dark)]/20 animate-spin" style={{ animationDuration: "30s", animationDirection: "reverse" }} />
+              
+              {/* Gradient glow behind image */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-full blur-2xl opacity-40 scale-110" />
+              
+              {/* Profile Image */}
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/50 dark:border-white/20 shadow-2xl">
+                <Image
+                  src="/images/siddarth-sharma.jpg"
+                  alt="Siddarth Sharma - UI/UX Designer"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
+              </div>
+
+              {/* Floating badges */}
+              <div className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
+                <span className="text-sm font-medium">Figma Expert</span>
+              </div>
+              <div className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
+                <span className="text-sm font-medium">UI/UX</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="flex-1 order-1 lg:order-2 text-center lg:text-left">
             <div className="animate-fade-in-up">
               <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-sm font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)] mb-6">
                 UI/UX & Product Designer
@@ -79,37 +110,6 @@ export function HeroSection() {
               <div className="text-center lg:text-left">
                 <span className="block text-3xl font-bold gradient-text">10+</span>
                 <span className="text-sm text-muted-foreground">Happy Clients</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Photo */}
-          <div className="flex-1 flex justify-center lg:justify-end animate-scale-in stagger-2">
-            <div className="relative">
-              {/* Decorative rings */}
-              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-[var(--blue-light)]/30 animate-spin" style={{ animationDuration: "20s" }} />
-              <div className="absolute -inset-8 rounded-full border-2 border-dashed border-[var(--blue-dark)]/20 animate-spin" style={{ animationDuration: "30s", animationDirection: "reverse" }} />
-              
-              {/* Gradient glow behind image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-full blur-2xl opacity-40 scale-110" />
-              
-              {/* Profile Image */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/50 dark:border-white/20 shadow-2xl">
-                <Image
-                  src="/images/siddarth-sharma.jpg"
-                  alt="Siddarth Sharma - UI/UX Designer"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
-                <span className="text-sm font-medium">Figma Expert</span>
-              </div>
-              <div className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
-                <span className="text-sm font-medium">UI/UX</span>
               </div>
             </div>
           </div>

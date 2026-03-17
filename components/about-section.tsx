@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { Download } from "lucide-react"
+import Link from "next/link"
+import { Download, Linkedin, Instagram, Facebook } from "lucide-react"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -13,6 +14,8 @@ export function AboutSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
+        } else {
+          setIsVisible(false)
         }
       },
       { threshold: 0.2 }
@@ -48,9 +51,9 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
+        <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-start">
           {/* Left Column - Description */}
-          <div className={`space-y-6 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
+          <div className={`space-y-6 order-2 lg:order-1 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I{"'"}m <span className="text-foreground font-semibold">Siddarth Sharma</span>, a passionate UI/UX and Product Designer dedicated to crafting thoughtful, intuitive, and visually engaging digital experiences. My work is rooted in empathy, understanding user needs, and transforming ideas into meaningful solutions that balance aesthetics with functionality.
@@ -81,8 +84,8 @@ export function AboutSection() {
           </div>
 
           {/* Right Column - Photo with flip animation */}
-          <div className={`flex justify-center lg:justify-end perspective-1000 ${isVisible ? "animate-flip-in stagger-3" : "opacity-0"}`}>
-            <div className="relative preserve-3d">
+          <div className={`flex flex-col items-center order-1 lg:order-2 ${isVisible ? "animate-flip-in-right stagger-3" : "opacity-0"}`}>
+            <div className="relative preserve-3d w-fit">
               {/* Decorative elements */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-2xl opacity-20 blur-xl" />
               <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-[var(--blue-accent)]/30 rounded-2xl" />
@@ -104,9 +107,40 @@ export function AboutSection() {
               <div className="absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle">
                 <span className="text-sm font-medium gradient-text">UI UX & Product Designer</span>
               </div>
-              <div className="absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
+              <div className="absolute -bottom-8 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
                 <span className="text-sm font-medium gradient-text">2+ Years Exp</span>
               </div>
+            </div>
+
+            {/* Social Media Icons - Centered below photo */}
+            <div className="flex justify-center gap-4 w-full mt-12 pt-8 border-t border-border/50">
+              <Link
+                href="https://www.linkedin.com/in/siddarth-sharma-854092241/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/_sidd__01/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.facebook.com/sidh.sharma2001/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>
