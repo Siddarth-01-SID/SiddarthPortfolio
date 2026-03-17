@@ -40,7 +40,7 @@ export function HeroSection() {
               <span className="gradient-text font-semibold italic">Siddarth Sharma</span>
             </h1>
 
-            <p className="animate-fade-in-up stagger-2 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 lg:ml-auto mb-8 leading-relaxed">
+            <p className="animate-fade-in-up stagger-2 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 lg:ml-auto mb-8 leading-relaxed text-left">
               Creating intuitive and beautiful digital experiences that put users first. I transform complex problems into elegant, user-friendly solutions.
             </p>
 
