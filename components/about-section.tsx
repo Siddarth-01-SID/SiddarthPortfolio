@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Download, Linkedin, Instagram, Facebook } from "lucide-react"
 
 export function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLSection>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -27,6 +27,45 @@ export function AboutSection() {
 
     return () => observer.disconnect()
   }, [])
+
+  const handleDownloadCV = async () => {
+    try {
+      const response = await fetch('/Siddarth-Sharma-CV.png', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'image/png',
+        },
+      })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const blob = await response.blob()
+      
+      // Verify blob type
+      if (!blob.type.includes('image')) {
+        console.warn('Warning: Downloaded file may not be a valid image')
+      }
+      
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'Siddarth-Sharma-CV.png'
+      link.style.display = 'none'
+      document.body.appendChild(link)
+      link.click()
+      
+      // Wait a bit before cleanup to ensure download starts
+      setTimeout(() => {
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      }, 100)
+    } catch (error) {
+      console.error('Error downloading CV:', error)
+      alert('Failed to download CV. Please try again.')
+    }
+  }
 
   return (
     <section 
@@ -71,15 +110,14 @@ export function AboutSection() {
 
             {/* Download CV Button */}
             <div className="pt-4">
-              <a
-                href="/Siddarth-Sharma-CV.pdf"
-                download="Siddarth-Sharma-CV.pdf"
+              <button
+                onClick={handleDownloadCV}
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
               >
                 <Download className="w-5 h-5" />
                 Download CV
                 <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </button>
             </div>
           </div>
 
