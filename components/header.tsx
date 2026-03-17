@@ -24,12 +24,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isContact?: boolean) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    if (isContact) {
-      window.location.href = "mailto:sidh.sharma2001@gmail.com?subject=Let's Work Together&body=Hi Siddarth,%0D%0A%0D%0AI'd love to discuss a potential project with you.%0D%0A%0D%0ABest regards"
-      return
-    }
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -50,9 +46,9 @@ export function Header() {
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--blue-light)] via-[var(--blue-accent)] to-[var(--blue-dark)]" />
       
       <div className="mx-auto max-w-7xl px-6 py-4">
-        <nav className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2">
-            <span className="text-xl font-serif font-medium text-foreground whitespace-nowrap">
+        <nav className="flex items-center justify-between gap-4">
+          <Link href="/" className="group flex items-center gap-2 flex-shrink-0">
+            <span className="text-base sm:text-lg lg:text-xl font-serif font-medium text-foreground whitespace-nowrap">
               Siddarth Sharma
             </span>
           </Link>
@@ -63,7 +59,7 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, item.isContact)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="nav-hover text-sm font-medium text-muted-foreground px-2 py-1"
               >
                 {item.label}
@@ -116,7 +112,7 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, item.isContact)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={cn(
                   "nav-hover text-lg font-medium text-muted-foreground py-2 animate-fade-in-up",
                   `stagger-${index + 1}`
