@@ -88,14 +88,37 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className={`${isVisible ? "animate-fade-in-up stagger-1" : "opacity-0"} text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight mb-6 relative inline-block`}>
+            <h1 className={`${isVisible ? "animate-fade-in-up stagger-1" : "opacity-0"} text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight mb-6 relative`}>
               <span className="text-muted-foreground">Hello, I{"'"}m</span>
               <br />
               <div className="relative inline-block">
+                {/* Animated Drawing Oval */}
                 {isVisible && (
-                  <div className="absolute -inset-4 sm:-inset-6 lg:-inset-8 border-2 border-[var(--blue-accent)]/30 rounded-[60% 40% 30% 70% / 60% 30% 70% 40%] animate-pulse-oval pointer-events-none" />
+                  <svg
+                    className="absolute -inset-4 sm:-inset-6 lg:-inset-8 w-[calc(100%+32px)] sm:w-[calc(100%+48px)] lg:w-[calc(100%+64px)] h-auto"
+                    viewBox="0 0 400 120"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <ellipse
+                      cx="200"
+                      cy="60"
+                      rx="190"
+                      ry="55"
+                      fill="none"
+                      stroke="url(#ovalGradient)"
+                      strokeWidth="3"
+                      className="animate-draw-oval"
+                    />
+                    <defs>
+                      <linearGradient id="ovalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="var(--blue-accent)" stopOpacity="1" />
+                        <stop offset="50%" stopColor="var(--blue-light)" stopOpacity="0.7" />
+                        <stop offset="100%" stopColor="var(--blue-dark)" stopOpacity="1" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 )}
-                <span className="gradient-text font-semibold italic whitespace-nowrap">Siddarth Sharma</span>
+                <span className="gradient-text font-semibold italic whitespace-nowrap relative z-10">Siddarth Sharma</span>
               </div>
             </h1>
 

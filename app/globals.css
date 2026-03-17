@@ -253,6 +253,25 @@
   }
 }
 
+@keyframes draw-oval {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+}
+
 @keyframes bounce-subtle {
   0%, 100% {
     transform: translateY(0);
@@ -325,6 +344,10 @@
 
 .animate-pulse-oval {
   animation: pulse-oval 4s ease-in-out infinite;
+}
+
+.animate-draw-oval {
+  animation: draw-oval 3s ease-out forwards;
 }
 
 .animate-bounce-subtle {
