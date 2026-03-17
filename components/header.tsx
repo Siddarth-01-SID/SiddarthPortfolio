@@ -72,12 +72,14 @@ export function Header() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full md:hidden transition-all hover:bg-accent"
-            aria-label="Toggle menu"
-          >
+          {/* Mobile Menu Button and Theme Toggle */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-accent"
+              aria-label="Toggle menu"
+            >
             <div className="flex flex-col gap-1.5 w-5">
               <span
                 className={cn(
@@ -99,16 +101,17 @@ export function Header() {
               />
             </div>
           </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}
         <div
           className={cn(
-            "overflow-hidden transition-all duration-400 md:hidden",
-            isMobileMenuOpen ? "max-h-80 opacity-100 pt-6" : "max-h-0 opacity-0",
+            "overflow-hidden transition-all duration-400 md:hidden rounded-2xl mt-2",
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
           )}
         >
-          <div className="flex flex-col gap-4 border-t border-border/50 pt-6">
+          <div className="flex flex-col gap-4 bg-background/95 backdrop-blur-xl border border-border/50 rounded-2xl p-6 shadow-xl">
             {navItems.map((item, index) => (
               <a
                 key={item.label}
@@ -122,9 +125,6 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <div className="pt-4 border-t border-border/50">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       </div>
