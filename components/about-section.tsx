@@ -106,40 +106,40 @@ export function AboutSection() {
               <div className="absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle">
                 <span className="text-sm font-medium gradient-text">UI UX & Product Designer</span>
               </div>
-              <div className="absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
+              <div className="absolute -bottom-8 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
                 <span className="text-sm font-medium gradient-text">2+ Years Exp</span>
               </div>
+            </div>
 
-              {/* Social Media Icons */}
-              <div className="flex justify-center gap-4 mt-8 pt-8 border-t border-border/50">
-                <Link
-                  href="https://www.linkedin.com/in/siddarth-sharma-854092241/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/_sidd__01/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="https://www.facebook.com/sidh.sharma2001/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </Link>
-              </div>
+            {/* Social Media Icons - Outside the relative container */}
+            <div className="flex justify-center gap-4 mt-12 pt-8 border-t border-border/50">
+              <Link
+                href="https://www.linkedin.com/in/siddarth-sharma-854092241/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/_sidd__01/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.facebook.com/sidh.sharma2001/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-br from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-foreground hover:bg-gradient-to-br hover:from-[var(--blue-light)]/40 hover:to-[var(--blue-dark)]/40 hover:border-[var(--blue-accent)]/60 hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[var(--blue-accent)]/20"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>
