@@ -108,7 +108,7 @@ export function HeroSection() {
                 <span className="text-sm text-muted-foreground">Projects Completed</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block text-3xl font-bold gradient-text">8+</span>
+                <span className="block text-3xl font-bold gradient-text">10+</span>
                 <span className="text-sm text-muted-foreground">Happy Clients</span>
               </div>
             </div>
