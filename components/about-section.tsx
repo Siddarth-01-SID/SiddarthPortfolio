@@ -30,18 +30,40 @@ export function AboutSection() {
 
   const handleDownloadCV = async () => {
     try {
-      const response = await fetch('/Siddarth-Sharma-CV.pdf')
+      const response = await fetch('/Siddarth-Sharma-CV.pdf', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/pdf',
+        },
+      })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
       const blob = await response.blob()
+      
+      // Verify blob type
+      if (!blob.type.includes('pdf')) {
+        console.warn('Warning: Downloaded file may not be a valid PDF')
+      }
+      
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
       link.download = 'Siddarth-Sharma-CV.pdf'
+      link.style.display = 'none'
       document.body.appendChild(link)
       link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
+      
+      // Wait a bit before cleanup to ensure download starts
+      setTimeout(() => {
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      }, 100)
     } catch (error) {
       console.error('Error downloading CV:', error)
+      alert('Failed to download CV. Please try again.')
     }
   }
 
