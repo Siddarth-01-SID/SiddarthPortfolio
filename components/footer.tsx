@@ -1,13 +1,6 @@
 "use client"
 
-import { Heart, Linkedin, Dribbble, Instagram, Twitter } from "lucide-react"
-
-const socialLinks = [
-  { label: "LinkedIn", icon: Linkedin, href: "#" },
-  { label: "Dribbble", icon: Dribbble, href: "#" },
-  { label: "Instagram", icon: Instagram, href: "#" },
-  { label: "Twitter", icon: Twitter, href: "#" },
-]
+import { Heart } from "lucide-react"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -21,20 +14,6 @@ export function Footer() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center gap-8">
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-label={link.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-300 hover:border-[var(--blue-accent)] hover:text-[var(--blue-accent)] hover:scale-110"
-              >
-                <link.icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
-
           {/* Back to top */}
           <button
             onClick={scrollToTop}
