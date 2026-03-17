@@ -113,37 +113,6 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-
-          {/* Right Side - Photo */}
-          <div className="flex-1 order-2 lg:order-1 flex justify-center lg:justify-end animate-scale-in stagger-2">
-            <div className="relative">
-              {/* Decorative rings */}
-              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-[var(--blue-light)]/30 animate-spin" style={{ animationDuration: "20s" }} />
-              <div className="absolute -inset-8 rounded-full border-2 border-dashed border-[var(--blue-dark)]/20 animate-spin" style={{ animationDuration: "30s", animationDirection: "reverse" }} />
-              
-              {/* Gradient glow behind image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-full blur-2xl opacity-40 scale-110" />
-              
-              {/* Profile Image */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/50 dark:border-white/20 shadow-2xl">
-                <Image
-                  src="/images/siddarth-sharma.jpg"
-                  alt="Siddarth Sharma - UI/UX Designer"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
-                <span className="text-sm font-medium">Figma Expert</span>
-              </div>
-              <div className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
-                <span className="text-sm font-medium">UI/UX</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Scroll indicator */}
