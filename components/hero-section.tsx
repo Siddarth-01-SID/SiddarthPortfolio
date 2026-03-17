@@ -6,15 +6,33 @@ import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [showOval, setShowOval] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const ovalTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
+          setShowOval(true)
+          
+          // Clear existing timeout if any
+          if (ovalTimeoutRef.current) {
+            clearTimeout(ovalTimeoutRef.current)
+          }
+          
+          // Hide oval after 3 seconds
+          ovalTimeoutRef.current = setTimeout(() => {
+            setShowOval(false)
+          }, 3000)
         } else {
           setIsVisible(false)
+          setShowOval(false)
+          // Clear timeout when leaving
+          if (ovalTimeoutRef.current) {
+            clearTimeout(ovalTimeoutRef.current)
+          }
         }
       },
       { threshold: 0.3 }
@@ -24,7 +42,12 @@ export function HeroSection() {
       observer.observe(sectionRef.current)
     }
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (ovalTimeoutRef.current) {
+        clearTimeout(ovalTimeoutRef.current)
+      }
+    }
   }, [])
 
   const scrollToAbout = () => {
@@ -93,9 +116,9 @@ export function HeroSection() {
               <br />
               <div className="relative inline-block">
                 {/* Animated Drawing Oval */}
-                {isVisible && (
+                {showOval && (
                   <svg
-                    key={`oval-${isVisible}`}
+                    key={`oval-${showOval}`}
                     className="absolute -inset-4 sm:-inset-6 lg:-inset-8 w-[calc(100%+32px)] sm:w-[calc(100%+48px)] lg:w-[calc(100%+64px)] h-auto"
                     viewBox="0 0 400 120"
                     preserveAspectRatio="xMidYMid meet"
