@@ -25,9 +25,9 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30" />
 
       <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Left Side - Content */}
-          <div className="flex-1 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+          {/* Right Side - Content (now visually on the right) */}
+          <div className="flex-1 text-center lg:text-right">
             <div className="animate-fade-in-up">
               <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-sm font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)] mb-6">
                 UI/UX & Product Designer
@@ -40,11 +40,11 @@ export function HeroSection() {
               <span className="gradient-text font-semibold italic">Siddarth Sharma</span>
             </h1>
 
-            <p className="animate-fade-in-up stagger-2 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <p className="animate-fade-in-up stagger-2 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 lg:ml-auto mb-8 leading-relaxed">
               Creating intuitive and beautiful digital experiences that put users first. I transform complex problems into elegant, user-friendly solutions.
             </p>
 
-            <div className="animate-fade-in-up stagger-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="animate-fade-in-up stagger-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
               <a
                 href="#projects"
                 onClick={(e) => {
@@ -67,25 +67,25 @@ export function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="animate-fade-in-up stagger-4 flex flex-wrap gap-8 justify-center lg:justify-start mt-12 pt-12 border-t border-border/50">
-              <div className="text-center lg:text-left">
+            <div className="animate-fade-in-up stagger-4 flex flex-wrap gap-8 justify-center lg:justify-end mt-12 pt-12 border-t border-border/50">
+              <div className="text-center lg:text-right">
                 <span className="block text-3xl font-bold gradient-text">2+</span>
                 <span className="text-sm text-muted-foreground">Years Experience</span>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-right">
                 <span className="block text-3xl font-bold gradient-text">13+</span>
                 <span className="text-sm text-muted-foreground">Projects Completed</span>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-right">
                 <span className="block text-3xl font-bold gradient-text">10+</span>
                 <span className="text-sm text-muted-foreground">Happy Clients</span>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Photo */}
-          <div className="flex-1 flex justify-center lg:justify-end animate-scale-in stagger-2">
-            <div className="relative">
+          {/* Left Side - Photo (now visually on the left) */}
+          <div className="flex-1 flex justify-center lg:justify-start animate-scale-in stagger-2">
+            <div className="relative hero-photo">
               {/* Decorative rings */}
               <div className="absolute -inset-4 rounded-full border-2 border-dashed border-[var(--blue-light)]/30 animate-spin" style={{ animationDuration: "20s" }} />
               <div className="absolute -inset-8 rounded-full border-2 border-dashed border-[var(--blue-dark)]/20 animate-spin" style={{ animationDuration: "30s", animationDirection: "reverse" }} />
@@ -105,10 +105,10 @@ export function HeroSection() {
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
+              <div className="absolute -top-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
                 <span className="text-sm font-medium">Figma Expert</span>
               </div>
-              <div className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
+              <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
                 <span className="text-sm font-medium">UI/UX</span>
               </div>
             </div>

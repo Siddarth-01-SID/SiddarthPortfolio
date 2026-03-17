@@ -15,7 +15,7 @@ export function AboutSection() {
           setIsVisible(true)
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
 
     if (sectionRef.current) {
@@ -39,7 +39,7 @@ export function AboutSection() {
 
       <div className="relative mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-sm font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)] mb-4">
             About Me
           </span>
@@ -50,7 +50,7 @@ export function AboutSection() {
 
         <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
           {/* Left Column - Description */}
-          <div className={`space-y-6 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
+          <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"}`}>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I{"'"}m <span className="text-foreground font-semibold">Siddarth Sharma</span>, a passionate UI/UX and Product Designer dedicated to crafting thoughtful, intuitive, and visually engaging digital experiences. My work is rooted in empathy, understanding user needs, and transforming ideas into meaningful solutions that balance aesthetics with functionality.
@@ -80,9 +80,24 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Right Column - Photo with flip animation */}
-          <div className={`flex justify-center lg:justify-end perspective-1000 ${isVisible ? "animate-flip-in stagger-3" : "opacity-0"}`}>
-            <div className="relative preserve-3d">
+          {/* Right Column - Photo with flip animation from left */}
+          <div 
+            className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+              isVisible 
+                ? "opacity-100 translate-x-0 rotate-y-0" 
+                : "opacity-0 -translate-x-40 rotate-y-180"
+            }`}
+            style={{
+              perspective: "1000px",
+              transformStyle: "preserve-3d",
+            }}
+          >
+            <div 
+              className={`relative transition-transform duration-1000 delay-500 ${
+                isVisible ? "[transform:rotateY(0deg)]" : "[transform:rotateY(-180deg)]"
+              }`}
+              style={{ transformStyle: "preserve-3d" }}
+            >
               {/* Decorative elements */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-2xl opacity-20 blur-xl" />
               <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-[var(--blue-accent)]/30 rounded-2xl" />
@@ -101,10 +116,18 @@ export function AboutSection() {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle">
+              <div 
+                className={`absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg transition-all duration-700 delay-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+                }`}
+              >
                 <span className="text-sm font-medium gradient-text">UI UX & Product Designer</span>
               </div>
-              <div className="absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
+              <div 
+                className={`absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg transition-all duration-700 delay-900 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
                 <span className="text-sm font-medium gradient-text">2+ Years Exp</span>
               </div>
             </div>
