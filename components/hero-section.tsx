@@ -1,9 +1,32 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        } else {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   const scrollToAbout = () => {
     const element = document.querySelector("#about")
     if (element) {
@@ -12,7 +35,7 @@ export function HeroSection() {
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Animated Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[var(--blue-light)] rounded-full blur-[120px] opacity-30 animate-float-orb" />
@@ -59,23 +82,28 @@ export function HeroSection() {
 
           {/* Right Side - Content */}
           <div className="flex-1 order-1 lg:order-2 text-center lg:text-left">
-            <div className="animate-fade-in-up">
+            <div className={`${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
               <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[var(--blue-light)]/20 to-[var(--blue-dark)]/20 border border-[var(--blue-accent)]/30 text-sm font-medium text-[var(--blue-dark)] dark:text-[var(--blue-light)] mb-6">
                 UI/UX & Product Designer
               </span>
             </div>
 
-            <h1 className="animate-fade-in-up stagger-1 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight mb-6">
+            <h1 className={`${isVisible ? "animate-fade-in-up stagger-1" : "opacity-0"} text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight mb-6 relative inline-block`}>
               <span className="text-muted-foreground">Hello, I{"'"}m</span>
               <br />
-              <span className="gradient-text font-semibold italic">Siddarth Sharma</span>
+              <div className="relative inline-block">
+                {isVisible && (
+                  <div className="absolute -inset-4 sm:-inset-6 lg:-inset-8 border-2 border-[var(--blue-accent)]/30 rounded-[60% 40% 30% 70% / 60% 30% 70% 40%] animate-pulse-oval pointer-events-none" />
+                )}
+                <span className="gradient-text font-semibold italic whitespace-nowrap">Siddarth Sharma</span>
+              </div>
             </h1>
 
-            <p className="animate-fade-in-up stagger-2 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <p className={`${isVisible ? "animate-fade-in-up stagger-2" : "opacity-0"} text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed`}>
               Creating intuitive and beautiful digital experiences that put users first. I transform complex problems into elegant, user-friendly solutions.
             </p>
 
-            <div className="animate-fade-in-up stagger-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className={`${isVisible ? "animate-fade-in-up stagger-3" : "opacity-0"} flex flex-col sm:flex-row gap-4 justify-center lg:justify-start`}>
               <a
                 href="#projects"
                 onClick={(e) => {
@@ -98,7 +126,7 @@ export function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="animate-fade-in-up stagger-4 flex flex-wrap gap-8 justify-center lg:justify-start mt-12 pt-12 border-t border-border/50">
+            <div className={`${isVisible ? "animate-fade-in-up stagger-4" : "opacity-0"} flex flex-wrap gap-8 justify-center lg:justify-start mt-12 pt-12 border-t border-border/50`}>
               <div className="text-center lg:text-left">
                 <span className="block text-3xl font-bold gradient-text">2+</span>
                 <span className="text-sm text-muted-foreground">Years Experience</span>
@@ -118,7 +146,7 @@ export function HeroSection() {
         {/* Scroll indicator */}
         <button
           onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors animate-fade-in stagger-5"
+          className={`${isVisible ? "animate-fade-in stagger-5" : "opacity-0"} absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors`}
         >
           <span className="text-sm">Scroll to explore</span>
           <ArrowDown className="w-5 h-5 animate-bounce" />
