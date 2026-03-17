@@ -50,7 +50,7 @@ export function AboutSection() {
 
         <div className="grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
           {/* Left Column - Description */}
-          <div className={`space-y-6 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
+          <div className={`space-y-6 order-2 lg:order-1 ${isVisible ? "animate-slide-in-left stagger-2" : "opacity-0"}`}>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I{"'"}m <span className="text-foreground font-semibold">Siddarth Sharma</span>, a passionate UI/UX and Product Designer dedicated to crafting thoughtful, intuitive, and visually engaging digital experiences. My work is rooted in empathy, understanding user needs, and transforming ideas into meaningful solutions that balance aesthetics with functionality.
@@ -80,7 +80,7 @@ export function AboutSection() {
           </div>
 
           {/* Right Column - Photo with flip animation */}
-          <div className={`flex justify-center lg:justify-end perspective-1000 ${isVisible ? "animate-flip-in stagger-3" : "opacity-0"}`}>
+          <div className={`flex justify-center lg:justify-start perspective-1000 order-1 lg:order-2 ${isVisible ? "animate-flip-in-right stagger-3" : "opacity-0"}`}>
             <div className="relative preserve-3d">
               {/* Decorative elements */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[var(--blue-light)] to-[var(--blue-dark)] rounded-2xl opacity-20 blur-xl" />
