@@ -240,6 +240,42 @@
   }
 }
 
+@keyframes pulse-oval {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    border-color: var(--blue-accent);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    border-color: var(--blue-light);
+    opacity: 0.5;
+  }
+}
+
+@keyframes draw-oval {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 @keyframes bounce-subtle {
   0%, 100% {
     transform: translateY(0);
@@ -308,6 +344,14 @@
 .animate-flip-in-right {
   animation: flip-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
+}
+
+.animate-pulse-oval {
+  animation: pulse-oval 4s ease-in-out infinite;
+}
+
+.animate-draw-oval {
+  animation: draw-oval 3s ease-out forwards;
 }
 
 .animate-bounce-subtle {
