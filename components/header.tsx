@@ -24,12 +24,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isContact?: boolean) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    if (isContact) {
-      window.location.href = "mailto:sidh.sharma2001@gmail.com?subject=Let's Work Together&body=Hi Siddarth,%0D%0A%0D%0AI'd love to discuss a potential project with you.%0D%0A%0D%0ABest regards"
-      return
-    }
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -63,7 +59,7 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, item.isContact)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="nav-hover text-sm font-medium text-muted-foreground px-2 py-1"
               >
                 {item.label}
@@ -116,7 +112,7 @@ export function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, item.isContact)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={cn(
                   "nav-hover text-lg font-medium text-muted-foreground py-2 animate-fade-in-up",
                   `stagger-${index + 1}`
