@@ -52,7 +52,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-2">
-            <span className="text-xl font-serif font-medium text-foreground">
+            <span className="text-xl font-serif font-medium text-foreground whitespace-nowrap">
               Siddarth Sharma
             </span>
           </Link>
