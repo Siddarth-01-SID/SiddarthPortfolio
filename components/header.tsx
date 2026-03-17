@@ -46,9 +46,9 @@ export function Header() {
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--blue-light)] via-[var(--blue-accent)] to-[var(--blue-dark)]" />
       
       <div className="mx-auto max-w-7xl px-6 py-4">
-        <nav className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2">
-            <span className="text-xl font-serif font-medium text-foreground whitespace-nowrap">
+        <nav className="flex items-center justify-between gap-4">
+          <Link href="/" className="group flex items-center gap-2 flex-shrink-0">
+            <span className="text-base sm:text-lg lg:text-xl font-serif font-medium text-foreground whitespace-nowrap">
               Siddarth Sharma
             </span>
           </Link>
