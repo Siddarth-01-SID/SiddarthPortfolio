@@ -95,6 +95,7 @@ export function HeroSection() {
                 {/* Animated Drawing Oval */}
                 {isVisible && (
                   <svg
+                    key={`oval-${isVisible}`}
                     className="absolute -inset-4 sm:-inset-6 lg:-inset-8 w-[calc(100%+32px)] sm:w-[calc(100%+48px)] lg:w-[calc(100%+64px)] h-auto"
                     viewBox="0 0 400 120"
                     preserveAspectRatio="xMidYMid meet"
