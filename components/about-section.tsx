@@ -69,7 +69,8 @@ export function AboutSection() {
             {/* Download CV Button */}
             <div className="pt-4">
               <a
-                href="#"
+                href="/Siddarth-Sharma-CV.pdf"
+                download="Siddarth-Sharma-CV.pdf"
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
               >
                 <Download className="w-5 h-5" />
