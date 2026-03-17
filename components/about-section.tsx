@@ -30,10 +30,10 @@ export function AboutSection() {
 
   const handleDownloadCV = async () => {
     try {
-      const response = await fetch('/Siddarth-Sharma-CV.pdf', {
+      const response = await fetch('/Siddarth-Sharma-CV.png', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/pdf',
+          'Content-Type': 'image/png',
         },
       })
       
@@ -44,14 +44,14 @@ export function AboutSection() {
       const blob = await response.blob()
       
       // Verify blob type
-      if (!blob.type.includes('pdf')) {
-        console.warn('Warning: Downloaded file may not be a valid PDF')
+      if (!blob.type.includes('image')) {
+        console.warn('Warning: Downloaded file may not be a valid image')
       }
       
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = 'Siddarth-Sharma-CV.pdf'
+      link.download = 'Siddarth-Sharma-CV.png'
       link.style.display = 'none'
       document.body.appendChild(link)
       link.click()
