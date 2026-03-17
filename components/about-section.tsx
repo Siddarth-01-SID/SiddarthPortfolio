@@ -101,10 +101,10 @@ export function AboutSection() {
 
               {/* Floating Elements */}
               <div className="absolute -top-4 left-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle">
-                <span className="text-sm font-medium gradient-text">Product Designer</span>
+                <span className="text-sm font-medium gradient-text">UI UX & Product Designer</span>
               </div>
               <div className="absolute -bottom-4 right-8 px-4 py-2 bg-card border border-border rounded-lg shadow-lg animate-bounce-subtle" style={{ animationDelay: "0.5s" }}>
-                <span className="text-sm font-medium gradient-text">3+ Years Exp</span>
+                <span className="text-sm font-medium gradient-text">2+ Years Exp</span>
               </div>
             </div>
           </div>
