@@ -29,6 +29,8 @@ export function AboutSection() {
   }, [])
 
   const handleDownloadCV = async () => {
+    if (typeof window === 'undefined') return
+    
     try {
       const response = await fetch('/Siddarth-Sharma-CV.png', {
         method: 'GET',
@@ -43,11 +45,6 @@ export function AboutSection() {
       
       const blob = await response.blob()
       
-      // Verify blob type
-      if (!blob.type.includes('image')) {
-        console.warn('Warning: Downloaded file may not be a valid image')
-      }
-      
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
@@ -56,14 +53,12 @@ export function AboutSection() {
       document.body.appendChild(link)
       link.click()
       
-      // Wait a bit before cleanup to ensure download starts
       setTimeout(() => {
         document.body.removeChild(link)
         window.URL.revokeObjectURL(url)
       }, 100)
     } catch (error) {
       console.error('Error downloading CV:', error)
-      alert('Failed to download CV. Please try again.')
     }
   }
 

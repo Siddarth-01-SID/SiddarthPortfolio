@@ -94,11 +94,11 @@ export function HeroSection() {
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
-                <span className="text-sm font-medium">Figma Expert</span>
+              <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle">
+                <span className="text-sm font-medium">Product Designer</span>
               </div>
               <div className="absolute -bottom-4 -left-4 px-4 py-2 bg-card border border-border rounded-full shadow-lg animate-bounce-subtle" style={{ animationDelay: "1s" }}>
-                <span className="text-sm font-medium">UI/UX</span>
+                <span className="text-sm font-medium">UI UX Designer</span>
               </div>
             </div>
           </div>
