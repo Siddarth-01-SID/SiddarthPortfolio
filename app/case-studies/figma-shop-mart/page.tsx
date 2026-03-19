@@ -8,10 +8,10 @@ export const metadata = {
 
 export default function FigmaCaseStudy() {
   return (
-    <main className="relative w-full min-h-screen bg-background">
+    <main className="relative w-full bg-background flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 px-6 py-4 bg-background/95 backdrop-blur-sm border-b border-border/50">
-        <div className="mx-auto max-w-7xl flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <Link
             href="/#projects"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -23,38 +23,22 @@ export default function FigmaCaseStudy() {
         </div>
       </header>
 
-      {/* Content */}
-      <div className="w-full">
+      {/* Full-Screen Figma Embed */}
+      <div className="flex-1 w-full">
+        <iframe 
+          style={{
+            border: "none",
+            width: "100%",
+            height: "100vh",
+          }} 
+          src="https://embed.figma.com/design/59Omflr8EWfqZAoMkaz9TJ/Online-Shopping?node-id=1-3&embed-host=share" 
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      {/* Project Details Section */}
+      <div className="w-full bg-background border-t border-border/50">
         <div className="mx-auto max-w-7xl px-6 py-12">
-          {/* Project Info */}
-          <div className="mb-12 space-y-4">
-            <h2 className="text-3xl font-bold">Transforming Online Shopping with Data-Driven UX Research</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl">
-              Explore the complete Figma design system and interactive prototype for Shop Mart, a comprehensive UX research project focused on creating a seamless online shopping experience.
-            </p>
-          </div>
-
-          {/* Figma Embed - Responsive */}
-          <div className="flex justify-center mb-12">
-            <div className="w-full max-w-4xl">
-              <div className="relative w-full rounded-lg overflow-hidden border border-border/50 shadow-lg">
-                <div className="aspect-video w-full">
-                  <iframe 
-                    style={{
-                      border: "1px solid rgba(0, 0, 0, 0.1)",
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: "0.5rem",
-                    }} 
-                    src="https://embed.figma.com/design/59Omflr8EWfqZAoMkaz9TJ/Online-Shopping?node-id=1-3&embed-host=share" 
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Project Details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
               <div>
