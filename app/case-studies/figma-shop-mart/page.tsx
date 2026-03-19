@@ -8,10 +8,10 @@ export const metadata = {
 
 export default function FigmaCaseStudy() {
   return (
-    <main className="relative min-h-screen bg-background overflow-hidden">
+    <main className="relative w-full h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="mx-auto max-w-7xl flex items-center justify-between">
+      <header className="flex-shrink-0 px-6 py-4 bg-background/95 backdrop-blur-sm border-b border-border/50 z-50">
+        <div className="mx-auto max-w-full flex items-center justify-between">
           <Link
             href="/#projects"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -19,16 +19,17 @@ export default function FigmaCaseStudy() {
             <ArrowLeft className="w-4 h-4" />
             Back to Projects
           </Link>
-          <h1 className="text-lg font-semibold">Shop Mart - Figma Design</h1>
-          <div className="w-20" /> {/* Spacer for alignment */}
+          <h1 className="text-lg font-semibold text-center flex-1">Shop Mart - Online Shopping Design</h1>
+          <div className="w-12" />
         </div>
       </header>
 
-      {/* Figma Embed */}
-      <div className="w-full h-screen pt-16">
+      {/* Figma Embed - Full Screen */}
+      <div className="flex-1 w-full overflow-hidden">
         <iframe
+          title="Shop Mart Figma Design"
           style={{
-            border: "1px solid rgba(0, 0, 0, 0.1)",
+            border: "none",
             width: "100%",
             height: "100%",
             borderRadius: "0",
