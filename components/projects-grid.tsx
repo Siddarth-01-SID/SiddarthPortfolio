@@ -36,6 +36,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "Wireframes"],
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     category: "User Research",
+    caseStudyUrl: "/case-studies/figma-shop-mart",
   },
   {
     id: 3,
