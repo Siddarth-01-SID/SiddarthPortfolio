@@ -1,7 +1,5 @@
 "use client"
 
-import { Heart } from "lucide-react"
-
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -35,8 +33,8 @@ export function Footer() {
 
           {/* Credits */}
           <div className="text-center space-y-2">
-            <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-              Designed and Built with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by{" "}
+            <p className="text-sm text-muted-foreground">
+              Designed and Built by{" "}
               <span className="gradient-text font-medium">Siddarth Sharma</span>
             </p>
             <p className="text-xs text-muted-foreground/60">
