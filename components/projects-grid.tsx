@@ -45,6 +45,7 @@ const projects: Project[] = [
     tags: ["User Interface", "Web Designing", "Design System"],
     image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
     category: "User Interface",
+    caseStudyUrl: "/case-studies/tixflix",
   },
   {
     id: 4,
@@ -158,6 +159,8 @@ function ProjectCard({ project, index, isVisible }: { project: Project; index: n
           
           <a
             href={project.caseStudyUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
           >
             <ExternalLink className="w-4 h-4" />
