@@ -46,7 +46,7 @@ const projects: Project[] = [
     tags: ["User Interface", "Web Designing", "Design System"],
     image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
     category: "User Interface",
-    caseStudyUrl: "/case-studies/figma-ticket-booking",
+    caseStudyUrl: "/tixflix-design.html",
   },
   {
     id: 4,
