@@ -36,6 +36,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "Wireframes"],
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     category: "User Research",
+    caseStudyUrl: "/case-studies/figma-shop-mart",
   },
   {
     id: 3,
@@ -45,6 +46,7 @@ const projects: Project[] = [
     tags: ["User Interface", "Web Designing", "Design System"],
     image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
     category: "User Interface",
+    caseStudyUrl: "https://www.figma.com/proto/tE9SzmsQIMFdZxvcR5f4WZ/Ticket-Booking-App-UI?node-id=567-3930&t=UUZMnlSMceb97MSv-1",
   },
   {
     id: 4,
@@ -54,6 +56,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "App Designing"],
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
     category: "User Research",
+    caseStudyUrl: "/case-studies/figma-elearning",
   },
 ]
 
@@ -158,6 +161,8 @@ function ProjectCard({ project, index, isVisible }: { project: Project; index: n
           
           <a
             href={project.caseStudyUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue-dark)] text-white text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[var(--blue-accent)]/30 hover:scale-105"
           >
             <ExternalLink className="w-4 h-4" />

@@ -90,6 +90,7 @@ export function HeroSection() {
                   fill
                   className="object-cover object-top"
                   priority
+                  loading="eager"
                 />
               </div>
 

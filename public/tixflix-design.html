@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TixFlix - Ticket Booking App Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Urbanist:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #171717;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            background: #171717;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 582.75px;
+            height: 380.84px;
+            left: 340.5px;
+            top: -392.25px;
+            background: #12E6C8;
+            opacity: 0.8;
+            filter: blur(90px);
+            transform: rotate(-22.69deg);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 529.6px;
+            height: 477.7px;
+            left: 732.75px;
+            top: 575.25px;
+            background: #A287F4;
+            opacity: 0.8;
+            filter: blur(84px);
+            transform: rotate(-33.88deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 150px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #FFFFFF;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: #000000;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+
+        .intro p {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #C7C7C7;
+            margin-bottom: 25px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Design System Section */
+        .design-system {
+            background: #171414;
+            padding: 100px 80px;
+        }
+
+        .section-header {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: #F2F4F7;
+        }
+
+        /* Colors Grid */
+        .colors-section {
+            background: #373737;
+            padding: 60px 80px;
+        }
+
+        .colors-header {
+            font-size: 47px;
+            font-weight: 600;
+            color: #F2F4F7;
+            margin-bottom: 60px;
+        }
+
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .color-label {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #F2F4F7;
+        }
+
+        .color-code {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 13px;
+            color: #F5F5F5;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 120px;
+            border-radius: 0 27px 27px 27px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px;
+            background: #171414;
+        }
+
+        .content-section h3 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #F2F4F7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 100px;
+            }
+
+            .intro h2 {
+                font-size: 36px;
+            }
+
+            .intro p {
+                font-size: 18px;
+            }
+
+            .design-system,
+            .colors-section,
+            .content-section {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 60px;
+            }
+
+            .intro h2 {
+                font-size: 28px;
+            }
+
+            .intro p {
+                font-size: 16px;
+            }
+
+            .design-system,
+            .colors-section,
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .colors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .section-header {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #171717;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-button:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()" class="back-button">← Back</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TixFlix</h1>
+            <p style="font-size: 36px; color: #C7C7C7; margin-top: 20px;">Movies made easy</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <h2>Movie ticket booking website design</h2>
+        <p>TixFlix is your ultimate movie ticket booking app—where every movie moment begins. Discover the latest releases, explore nearby cinemas, check showtimes, and reserve your seats in just a tap. With a sleek interface, lightning-fast confirmations, and exciting offers, TixFlix turns movie booking into a smooth, enjoyable, and unforgettable experience.</p>
+        <p style="margin-top: 25px;">I've also designed a custom UI for TixFlix—crafted with a modern look, intuitive flow, and vibrant visuals. Please have a look below!</p>
+        <p style="margin-top: 25px;">The TixFlix design showcases a strong and modern visual identity built around the project's name, giving the interface a dynamic and memorable personality. The colour palette enhances the overall mood and helps create a cohesive atmosphere throughout the app. Carefully selected typography adds clarity, structure, and a refined look, while the minimal, consistent iconography ensures smooth and intuitive navigation.</p>
+    </section>
+
+    <!-- Colors Section -->
+    <section class="colors-section">
+        <h2 class="colors-header">Colors</h2>
+        <div class="colors-grid">
+            <div class="color-item">
+                <div><span class="color-label">900</span> <span class="color-code">#0C2A41</span></div>
+                <div class="color-swatch" style="background: #0C2A41;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">800</span> <span class="color-code">#10456C</span></div>
+                <div class="color-swatch" style="background: #10456C;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">700</span> <span class="color-code">#12639A</span></div>
+                <div class="color-swatch" style="background: #12639A;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">600</span> <span class="color-code">#0E82CB</span></div>
+                <div class="color-swatch" style="background: #0E82CB;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">500</span> <span class="color-code">#00A1FF</span></div>
+                <div class="color-swatch" style="background: #00A1FF;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">400</span> <span class="color-code">#60B2FF</span></div>
+                <div class="color-swatch" style="background: #60B2FF;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">300</span> <span class="color-code">#89C2FF</span></div>
+                <div class="color-swatch" style="background: #89C2FF;"></div>
+            </div>
+            <div class="color-item">
+                <div><span class="color-label">200</span> <span class="color-code">#ABD3FF</span></div>
+                <div class="color-swatch" style="background: #ABD3FF;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System Content -->
+    <section class="design-system">
+        <h2 class="section-header">Main Colours</h2>
+        <p style="font-size: 18px; color: #C7C7C7; line-height: 1.6; margin-bottom: 40px;">The TixFlix color palette is carefully curated to create a modern, vibrant, and engaging interface. Each color shade serves a specific purpose in the design system, from primary actions to secondary elements, ensuring visual hierarchy and accessibility throughout the application.</p>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <h3>Typography</h3>
+        <p style="font-size: 18px; color: #C7C7C7; line-height: 1.6; margin-bottom: 40px;">The typography system uses Poppins and Urbanist fonts to create a modern, clean, and readable interface. Font weights and sizes are carefully chosen to establish visual hierarchy and guide users through the application seamlessly.</p>
+
+        <h3 style="margin-top: 60px;">Iconography</h3>
+        <p style="font-size: 18px; color: #C7C7C7; line-height: 1.6; margin-bottom: 40px;">The iconography is minimal and consistent throughout the design. Icons are designed to be easily recognizable and scalable, supporting quick understanding and intuitive navigation for users.</p>
+
+        <h3 style="margin-top: 60px;">Components</h3>
+        <p style="font-size: 18px; color: #C7C7C7; line-height: 1.6;">The design system includes reusable components such as buttons, cards, forms, and navigation elements. Each component is designed with consistency in mind to ensure a cohesive user experience across all screens and interactions.</p>
+    </section>
+</body>
+</html>
