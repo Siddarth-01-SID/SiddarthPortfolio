@@ -27,6 +27,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "Wireframes"],
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
     category: "User Research",
+    caseStudyUrl: "https://www.figma.com/proto/rIJBtS40cegdPf3yluD0bs/Case-Study?node-id=259-3253&t=mAXYquJfb8CBm011-1",
   },
   {
     id: 2,
@@ -36,7 +37,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "Wireframes"],
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     category: "User Research",
-    caseStudyUrl: "/case-studies/figma-shop-mart",
+    caseStudyUrl: "https://www.figma.com/proto/59Omflr8EWfqZAoMkaz9TJ/Online-Shopping?node-id=1-3&t=IsxJewufma9P0x1f-1",
   },
   {
     id: 3,
@@ -56,7 +57,7 @@ const projects: Project[] = [
     tags: ["User Research", "Design System", "App Designing"],
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
     category: "User Research",
-    caseStudyUrl: "/case-studies/figma-elearning",
+    caseStudyUrl: "https://www.figma.com/proto/K5CBcuiSl2FQ0uytckkhzI/E--Learning-App?node-id=1-125&t=rV8eBZqoJqfy1DsY-1",
   },
 ]
 
