@@ -80,7 +80,7 @@ const tools = [
     name: "ChatGPT",
     description: "AI-powered content creation and design ideation assistant.",
     icon: (
-      <img src="/icons/chatgpt-icon.png" alt="ChatGPT" className="w-8 h-8" />
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chat%20gpt-6tUb6G7m5Kt4zy4Hi5terJhwzLAbze.png" alt="ChatGPT" className="w-8 h-8" />
     ),
   },
   {
@@ -100,7 +100,7 @@ const tools = [
     name: "Midjourney",
     description: "AI image generation for creative visual concepts and inspiration.",
     icon: (
-      <img src="/icons/midjourney-icon.png" alt="Midjourney" className="w-8 h-8" />
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/midjourney-mHoKPYcE10thJ2WPsC0fUA28WugWlv.png" alt="Midjourney" className="w-8 h-8" />
     ),
   },
 ]
