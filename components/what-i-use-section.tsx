@@ -73,42 +73,28 @@ const tools = [
     name: "Claude AI",
     description: "Advanced AI assistant for brainstorming, research, and content generation.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <rect width="24" height="24" rx="4" fill="#1A1A1A"/>
-        <path d="M7 8C5.9 8 5 8.9 5 10V14C5 15.1 5.9 16 7 16H8L12 19L8 22V23H16C17.1 23 18 22.1 18 21V3C18 1.9 17.1 1 16 1H7C5.9 1 5 1.9 5 3V7H7V8Z" fill="#FFFFFF"/>
-      </svg>
+      <img src="https://thesvg.org/icons/claude/default.svg" alt="Claude AI" className="w-8 h-8" />
     ),
   },
   {
     name: "ChatGPT",
     description: "AI-powered content creation and design ideation assistant.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M11.643 21.694a5.25 5.25 0 001.508 0c1.505-.157 2.891-.914 3.744-2.064.853-1.15 1.263-2.621 1.158-4.11-.105-1.49-.65-2.908-1.567-4.023-.918-1.115-2.15-1.855-3.532-2.105.31-.987.46-2.015.441-3.047-.018-1.032-.173-2.054-.455-3.049a5.25 5.25 0 00-1.508 0C8.37 2.306 6.985 3.063 6.132 4.213c-.853 1.15-1.263 2.621-1.158 4.11.105 1.49.65 2.908 1.567 4.023.918 1.115 2.15 1.855 3.532 2.105-.31.987-.46 2.015-.441 3.047.018 1.032.173 2.054.455 3.049z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-      </svg>
+      <img src="https://thesvg.org/icons/openai/default.svg" alt="ChatGPT" className="w-8 h-8" />
     ),
   },
   {
     name: "Figma AI",
     description: "AI-powered design suggestions and automation within Figma.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M12 2L8.5 8.5M12 2L15.5 8.5M12 2V12M8.5 8.5H15.5M8.5 8.5L5 15M15.5 8.5L19 15M5 15H19M5 15L12 22L19 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <img src="https://thesvg.org/icons/figma/default.svg" alt="Figma AI" className="w-8 h-8" />
     ),
   },
   {
     name: "Midjourney",
     description: "AI image generation for creative visual concepts and inspiration.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <rect width="24" height="24" rx="4" fill="#0A0E27"/>
-        <path d="M6 8C6 6.9 6.9 6 8 6H16C17.1 6 18 6.9 18 8V16C18 17.1 17.1 18 16 18H8C6.9 18 6 17.1 6 16V8Z" stroke="#9D00FF" strokeWidth="1.5"/>
-        <circle cx="10" cy="11" r="1.5" fill="#9D00FF"/>
-        <circle cx="14" cy="14" r="1.5" fill="#9D00FF"/>
-        <circle cx="12" cy="13" r="1" fill="#9D00FF" opacity="0.6"/>
-      </svg>
+      <img src="https://thesvg.org/icons/midjourney/default.svg" alt="Midjourney" className="w-8 h-8" />
     ),
   },
 ]
