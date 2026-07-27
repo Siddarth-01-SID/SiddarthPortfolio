@@ -80,10 +80,7 @@ const tools = [
     name: "ChatGPT",
     description: "AI-powered content creation and design ideation assistant.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="currentColor"/>
-        <path d="M12.5 7.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3 5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
-      </svg>
+      <img src="/icons/chatgpt-icon.png" alt="ChatGPT" className="w-8 h-8" />
     ),
   },
   {
@@ -103,13 +100,7 @@ const tools = [
     name: "Midjourney",
     description: "AI image generation for creative visual concepts and inspiration.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M3 3H9V9H3V3Z" fill="#9D00FF"/>
-        <path d="M12 3H18V9H12V3Z" fill="#6B00FF"/>
-        <path d="M15 12H21V18H15V12Z" fill="#4B00CC"/>
-        <path d="M3 15H9V21H3V15Z" fill="#B833FF"/>
-        <path d="M12 12H18V18H12V12Z" fill="#7D2FFF"/>
-      </svg>
+      <img src="/icons/midjourney-icon.png" alt="Midjourney" className="w-8 h-8" />
     ),
   },
 ]
