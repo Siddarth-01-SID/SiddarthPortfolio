@@ -80,21 +80,36 @@ const tools = [
     name: "ChatGPT",
     description: "AI-powered content creation and design ideation assistant.",
     icon: (
-      <img src="https://thesvg.org/icons/openai/default.svg" alt="ChatGPT" className="w-8 h-8" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="currentColor"/>
+        <path d="M12.5 7.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3 5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
+      </svg>
     ),
   },
   {
     name: "Figma AI",
     description: "AI-powered design suggestions and automation within Figma.",
     icon: (
-      <img src="https://thesvg.org/icons/figma/default.svg" alt="Figma AI" className="w-8 h-8" />
+      <svg viewBox="0 0 38 57" fill="none" className="w-8 h-8">
+        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+        <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+        <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+        <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+      </svg>
     ),
   },
   {
     name: "Midjourney",
     description: "AI image generation for creative visual concepts and inspiration.",
     icon: (
-      <img src="https://thesvg.org/icons/midjourney/default.svg" alt="Midjourney" className="w-8 h-8" />
+      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
+        <path d="M3 3H9V9H3V3Z" fill="#9D00FF"/>
+        <path d="M12 3H18V9H12V3Z" fill="#6B00FF"/>
+        <path d="M15 12H21V18H15V12Z" fill="#4B00CC"/>
+        <path d="M3 15H9V21H3V15Z" fill="#B833FF"/>
+        <path d="M12 12H18V18H12V12Z" fill="#7D2FFF"/>
+      </svg>
     ),
   },
 ]
