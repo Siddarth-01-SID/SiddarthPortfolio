@@ -32,10 +32,10 @@ export function AboutSection() {
     if (typeof window === 'undefined') return
     
     try {
-      const response = await fetch('/Siddarth-Sharma-CV.png', {
+      const response = await fetch('/Siddarth-Sharma-CV.pdf', {
         method: 'GET',
         headers: {
-          'Content-Type': 'image/png',
+          'Content-Type': 'application/pdf',
         },
       })
       
@@ -48,7 +48,7 @@ export function AboutSection() {
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = 'Siddarth-Sharma-CV.png'
+      link.download = 'Siddarth-Sharma-CV.pdf'
       link.style.display = 'none'
       document.body.appendChild(link)
       link.click()
